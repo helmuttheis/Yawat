@@ -1,0 +1,25 @@
+{
+	"Host": "localhost",
+	"Protocol": "https",
+	"Port": "44328",
+	"BasicAuthentication": {
+		"BaseRoute": "/api/BaTodoItems",
+		"UserName": "test",
+		"Password": "test"
+	},
+	"IdentityServer": {
+		"BaseRoute": "/api/IsTodoItems",
+		"IdentityServerUrl":"https://localhost:5001",
+		"ClientId": "client",
+		"ClientSecret": "secret",
+		"Scope":"api1"
+	},
+	"Okta": {
+		"BaseRoute": "/api/OktaTodoItems",
+		"Domain": "https://OKTADOMIAN",
+		"TokenUrl": "https://OKTADOMIAN/oauth2/default/v1/token",
+		"ClientId": "ClientId",
+		"ClientSecret": "ClientSecret",
+    "Scope": "access_token"
+	}
+}

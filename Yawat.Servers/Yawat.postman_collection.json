@@ -1,0 +1,951 @@
+{
+	"info": {
+		"_postman_id": "0744d424-8218-4a40-b615-41e5876adcf0",
+		"name": "Yawat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Unprotected",
+			"item": [
+				{
+					"name": "ToDoItems",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostToDoItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"walk dog\",\r\n  \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItem2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutToDoItem2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":2,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/TodoItems/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteToDoItem2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":1,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/TodoItems/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "BasicAuthentication",
+			"item": [
+				{
+					"name": "ToDoItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/BaTodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"BaTodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostToDoItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"walk dog\",\r\n  \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/BaTodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"BaTodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItem1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/BaTodoItems/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"BaTodoItems",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutToDoItem1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":4,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/BaTodoItems/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"BaTodoItems",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteToDoItem1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":1,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/BaTodoItems/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"BaTodoItems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "username",
+						"value": "test",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "test",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "96c692fa-7454-4155-9daa-d652f95f0248",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fabf9ad1-a308-4584-8f46-869e47def9ab",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "OKTA",
+			"item": [
+				{
+					"name": "ToDoItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/OktaTodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"OktaTodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostToDoItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"walk dog\",\r\n  \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/OktaTodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"OktaTodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItem1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/OktaTodoItems/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"OktaTodoItems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutToDoItem1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":1,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/OktaTodoItems/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"OktaTodoItems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteToDoItem1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":1,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/OktaTodoItems/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"OktaTodoItems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": [
+					{
+						"key": "accessToken",
+						"value": "{{OktaToken}}",
+						"type": "string"
+					},
+					{
+						"key": "tokenType",
+						"value": "Bearer",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "948d7f12-be0d-4822-bd00-1167b9674754",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a7c76037-741b-4177-a22e-d315d9dbd398",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "IdentityServer",
+			"item": [
+				{
+					"name": "ToDoItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/IsTodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"IsTodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostToDoItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"walk dog\",\r\n  \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/IsTodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"IsTodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItem1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/IsTodoItems/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"IsTodoItems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutToDoItem1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":1,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/IsTodoItems/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"IsTodoItems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteToDoItem1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":1,\r\n    \"name\":\"feed fish\",\r\n    \"isComplete\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/IsTodoItems/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"IsTodoItems",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": [
+					{
+						"key": "accessToken",
+						"value": "{{IsToken}}",
+						"type": "string"
+					},
+					{
+						"key": "tokenType",
+						"value": "Bearer",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fe53f796-1fc8-4fa8-ad3f-339c1eacccd2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "79772832-57f4-4e9d-bc0c-fe657d736417",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "MediaTypes",
+			"item": [
+				{
+					"name": "ToDoItemsAsCsv",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/csv"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItemsAsBson",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/bson"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItemsAsJson",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItemsAsPlainText",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItemsAsProtoBuf",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/x-protobuf"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ToDoItemsAsXml",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/TodoItems",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"TodoItems"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "VirtualData",
+			"item": [
+				{
+					"name": "Get20from30",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/csv"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/vdata?first=20&take=30",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"vdata"
+							],
+							"query": [
+								{
+									"key": "first",
+									"value": "20"
+								},
+								{
+									"key": "take",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get20from30OfGroup1",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/csv"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/vdata?first=20&take=30&group=G0000001",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"vdata"
+							],
+							"query": [
+								{
+									"key": "first",
+									"value": "20"
+								},
+								{
+									"key": "take",
+									"value": "30"
+								},
+								{
+									"key": "group",
+									"value": "G0000001"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "89aeb363-adbc-4012-810e-7825d107a45a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "97be6199-87d8-47b9-aa34-cfd35bc91b4b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e8049985-f43b-42fb-a947-9864de9fa319",
+			"key": "URL",
+			"value": "http://localhost:44328"
+		},
+		{
+			"id": "02e7d2b0-64ed-4397-a0c7-f98f97e37a40",
+			"key": "URL_DOCKER",
+			"value": "http://localhost:44328"
+		},
+		{
+			"id": "3e7a638a-7e14-4faf-9115-618458e48963",
+			"key": "URL_VS",
+			"value": "https://localhost:44328"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

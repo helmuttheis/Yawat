@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  yawatwerver:
+    image: yawatwerver
+    ports:
+     - "44328:80"
+  yawatidentityserver:
+    image: yawatidentityserver
+    ports:
+     - "5001:80"

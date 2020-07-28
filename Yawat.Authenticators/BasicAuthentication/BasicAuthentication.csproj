@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityModel" Version="4.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Yawat" Version="0.0.11" />
+  </ItemGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>../../stylecop.ruleset</CodeAnalysisRuleSet>
+    <Version>0.0.9</Version>
+    <Authors>Helmut Theis</Authors>
+    <Company>Hypermediasystems Ges. f. Software mbH</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/helmuttheis/Yawat</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/helmuttheis/Yawat</RepositoryUrl>
+    <Description>Yet another WebApi tester is a .Net standard 2.1 assembly that can be used with test frameworks like NUnit to run tests against a web api.</Description>
+    <PackageTags>yawat webapi test basicauthentication</PackageTags>
+    <PackageId>Yawat.BasicAuthentication</PackageId>
+    <Product>Yawat.BasicAuthentication</Product>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\</OutputPath>
+  </PropertyGroup>
+
+</Project>

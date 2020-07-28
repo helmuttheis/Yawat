@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>Yawat.Okta</PackageId>
+    <Version>0.0.9</Version>
+    <Authors>Helmut Theis</Authors>
+    <Company>Hypermediasystems Ges. f. Software mbH</Company>
+    <Product>Yawat.Okta</Product>
+    <Description>Yet another WebApi tester is a .Net standard 2.1 assembly that can be used with test frameworks like NUnit to run tests against a web api.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/helmuttheis/Yawat</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/helmuttheis/Yawat</RepositoryUrl>
+    <PackageTags>yawat webapi test okta</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Okta.Sdk" Version="3.1.0" />
+    <PackageReference Include="Yawat" Version="0.0.11" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,1 @@
+powershell -executionpolicy bypass -File runDocker.ps1

@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YawatServer", "YawatServer\YawatServer.csproj", "{9F53A068-E500-4A88-93DA-45AB031CF999}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{BF63B74D-1989-46AE-A315-ED6FE5D8B4DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0642CC1E-4950-4905-A4AA-EC9A1E8D9A2F}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\yawat.settings.json = ..\..\yawat.settings.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualData", "VirtualData\VirtualData.csproj", "{81AD7696-0EB1-428E-8C7D-155E2E090F02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualDataTest", "VirtualDataTest\VirtualDataTest.csproj", "{05A5A4DF-A41C-4218-ABA4-4BE4D9545A93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F53A068-E500-4A88-93DA-45AB031CF999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F53A068-E500-4A88-93DA-45AB031CF999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F53A068-E500-4A88-93DA-45AB031CF999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F53A068-E500-4A88-93DA-45AB031CF999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF63B74D-1989-46AE-A315-ED6FE5D8B4DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF63B74D-1989-46AE-A315-ED6FE5D8B4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF63B74D-1989-46AE-A315-ED6FE5D8B4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF63B74D-1989-46AE-A315-ED6FE5D8B4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81AD7696-0EB1-428E-8C7D-155E2E090F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AD7696-0EB1-428E-8C7D-155E2E090F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AD7696-0EB1-428E-8C7D-155E2E090F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AD7696-0EB1-428E-8C7D-155E2E090F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A5A4DF-A41C-4218-ABA4-4BE4D9545A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A5A4DF-A41C-4218-ABA4-4BE4D9545A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A5A4DF-A41C-4218-ABA4-4BE4D9545A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A5A4DF-A41C-4218-ABA4-4BE4D9545A93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {692DCE52-B2E2-4E88-856A-9CBC676A3CF1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yawat", "src\Yawat.csproj", "{1F1172A5-7B57-47AF-A000-E5099E4B4561}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD3124A8-E350-45C2-A14F-FBA5D850DF40}"
+	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines.yml = ..\azure-pipelines.yml
+		stylecop.ruleset = stylecop.ruleset
+		..\yawat.settings.json.template = ..\yawat.settings.json.template
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yawat.Tests", "test\Yawat.Tests.csproj", "{DD1EDAAA-9E3F-4362-ABB4-978410DB2AD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F1172A5-7B57-47AF-A000-E5099E4B4561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1172A5-7B57-47AF-A000-E5099E4B4561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1172A5-7B57-47AF-A000-E5099E4B4561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1172A5-7B57-47AF-A000-E5099E4B4561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD1EDAAA-9E3F-4362-ABB4-978410DB2AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1EDAAA-9E3F-4362-ABB4-978410DB2AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD1EDAAA-9E3F-4362-ABB4-978410DB2AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1EDAAA-9E3F-4362-ABB4-978410DB2AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F63D799-0876-48EA-AAAA-47B0D28666AB}
+	EndGlobalSection
+EndGlobal

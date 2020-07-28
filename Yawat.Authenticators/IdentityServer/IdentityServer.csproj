@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>Yawat.IdentityServer</PackageId>
+    <Version>0.0.9</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/helmuttheis/Yawat</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/helmuttheis/Yawat</RepositoryUrl>
+    <Company>Hypermediasystems Ges. f. Software mbH</Company>
+    <Authors>Helmut Theis</Authors>
+    <Product>Yawat.IdentityServer</Product>
+    <Description>Yet another WebApi tester is a .Net standard 2.1 assembly that can be used with test frameworks like NUnit to run tests against a web api.</Description>
+    <PackageTags>yawat webapi test identityserver</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\bin\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Yawat" Version="0.0.11" />
+  </ItemGroup>
+
+</Project>
