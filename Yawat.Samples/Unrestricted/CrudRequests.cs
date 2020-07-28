@@ -40,7 +40,7 @@ namespace Unrestricted
 
             var toDo = (await SetupTeardown.HttpClientWithOptions.PostAsync($"{BaseRoute}", requestData)).As<ToDoItem>();
 
-            Assert.AreEqual(toDo.Id, 1);
+            Assert.AreEqual(toDo.Name, newToDoItem.Name);
         }
 
     }

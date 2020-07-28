@@ -24,7 +24,7 @@
             doc.LoadXml(xml);
             var nodeList = doc.SelectNodes("//TodoItemDto");
 
-            Assert.AreEqual(nodeList.Count, 1);
+            Assert.AreEqual(nodeList.Count, 2);
         }
 
         [Test]

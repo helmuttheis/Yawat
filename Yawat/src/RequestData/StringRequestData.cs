@@ -8,9 +8,9 @@
 
         public string MediaType { get; set; }
 
-        public string Serialize()
+        public byte[] Serialize()
         {
-            return this.Data.ToString();
+            return System.Text.Encoding.UTF8.GetBytes(this.Data.ToString());
         }
     }
 }

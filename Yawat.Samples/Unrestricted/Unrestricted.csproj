@@ -9,7 +9,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
-    <PackageReference Include="Yawat" Version="0.0.11" />
+    <PackageReference Include="Yawat" Version="0.0.12" />
   </ItemGroup>
 
   <ItemGroup>

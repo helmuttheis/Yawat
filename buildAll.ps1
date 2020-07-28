@@ -5,7 +5,7 @@ if ( -not (Test-Path -Path 'C:\NuGet.local' -PathType Container) ) {
 	exit -1;
 }
 
-$VERSION = "0.0.11"
+$VERSION = "0.0.12"
 
 Write-Host "Build Yawat for version $VERSION"
 
@@ -15,7 +15,6 @@ dotnet build  /p:Version=$VERSION /p:AssemblyVersion=$VERSION --configuration Re
 dotnet pack  /p:Version=$VERSION /p:AssemblyVersion=$VERSION --configuration Release
 Copy-Item src\bin\Release\*$VERSION.nupkg -Destination C:\NuGet.local
 cd ..
-
 
 
 Write-Host Build Yawat.Authenticators
@@ -36,6 +35,18 @@ Copy-Item BasicAuthentication\bin\Release\*$VERSION.nupkg -Destination  C:\NuGet
 Copy-Item IdentityServer\bin\Release\*$VERSION.nupkg -Destination  C:\NuGet.local
 Copy-Item Okta\bin\Release\*$VERSION.nupkg -Destination  C:\NuGet.local
 cd ..
+
+
+Write-Host Build Yawat.Samples
+cd Yawat.Samples
+Write-Host Build ...update Yawat package
+cd Authenticated
+dotnet add package Yawat
+cd ..\Unrestricted
+dotnet add package Yawat
+cd ..
+cd ..
+
 
 
 Write-Host Build Yawat.Servers

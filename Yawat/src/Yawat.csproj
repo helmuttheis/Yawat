@@ -14,7 +14,7 @@
   </ItemGroup>
   <PropertyGroup>
     <CodeAnalysisRuleSet>../../stylecop.ruleset</CodeAnalysisRuleSet>
-    <Version>0.0.10</Version>
+    <Version>0.0.12</Version>
     <Authors>Helmut Theis</Authors>
     <Company>Hypermediasystems Ges. f. Software mbH</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

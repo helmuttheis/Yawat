@@ -6,6 +6,6 @@
 
         string MediaType { get; set; }
 
-        string Serialize();
+        byte[] Serialize();
     }
 }

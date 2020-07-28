@@ -8,9 +8,9 @@
 
         public string MediaType { get; set; }
 
-        public string Serialize()
+        public byte[] Serialize()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this.Data);
+            return System.Text.Encoding.UTF8.GetBytes(Newtonsoft.Json.JsonConvert.SerializeObject(this.Data));
         }
     }
 }

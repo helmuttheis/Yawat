@@ -68,9 +68,15 @@
         private async Task<YawatResult> RequestAsync(HttpMethod verb, string endPoint, IYawatRequestData requestData,
             YawatOptions options = null)
         {
-            var jsonStr = requestData?.Serialize();
+            var byteArray = requestData?.Serialize();
 
-            return await this.RequestAsync(verb, endPoint, jsonStr, options);
+            return await this.RequestAsync(verb, endPoint, byteArray, options);
+        }
+
+        private async Task<YawatResult> RequestAsync(HttpMethod verb, string endPoint, byte[] byteArray, YawatOptions options = null)
+        {
+            return await this.RequestAsync(verb, endPoint,
+                System.Text.Encoding.UTF8.GetString(byteArray, 0, byteArray.Length), options);
         }
 
         private async Task<YawatResult> RequestAsync(HttpMethod verb, string endPoint, string jsonString = "", YawatOptions options = null)
@@ -134,7 +140,7 @@
 
         private async Task<YawatResult> PostProcessResponse(HttpResponseMessage response, YawatOptions options)
         {
-            byte[] byteArray = { };
+            var byteArray = Array.Empty<byte>();
 
             if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Created)
             {
@@ -150,14 +156,14 @@
 
             if (options.IncludeHeaders)
             {
-                foreach (var header in response.Headers)
+                foreach (var (key, value) in response.Headers)
                 {
-                    result.Headers.Add(header.Key, header.Value);
+                    result.Headers.Add(key, value);
                 }
 
-                foreach (var header in response.Content.Headers)
+                foreach (var (key, value) in response.Content.Headers)
                 {
-                    result.Headers.Add(header.Key, header.Value);
+                    result.Headers.Add(key, value);
                 }
             }
 
