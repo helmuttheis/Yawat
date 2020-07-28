@@ -5,7 +5,7 @@ Yet another WebApi tester
 
 **This is currently a work in progress.**
 
-If you find any bug or would like to implement a missing feature, pull requests are welcome.
+If you find any bugs or would like to implement a missing feature, pull requests are welcome.
 
 ***
 
@@ -26,6 +26,17 @@ This is what **Yawat** was developed for.
 
 **Yawat** is a .NET Standard2.1 library that can be used with NUnit (or other test frameworks) to run tests against a WebApi.
 And you can use Visual Studio to debug Yawat tests.
+
+# Installation with NuGet
+
+Use 
+```
+dotnet add package Yawat
+```
+to add **Yawat** to your test project.
+
+If you need authentication add **Yawat.BasicAuthentication**, **Yawat.Okta** or **Yawat.IdentityServer**.
+
 
 # Sample
 
