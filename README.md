@@ -74,23 +74,37 @@ A simple test might look like this:
 
 ---
 
-**Note**: `options` and `httpClient` should normally be created within the global setup-teardown method.<br/>
+**Note**: `options` and `httpClient` should normally be created as singletons within the global setup-teardown method.<br/>
 See https://docs.nunit.org/articles/nunit/writing-tests/attributes/onetimesetup.html for details or <br/>
-https://github.com/helmuttheis/Yawat/blob/master/Yawat.Samples/Basic/SetupTeardown.cs for a sample.
+https://github.com/helmuttheis/Yawat/blob/master/Yawat.Samples/Unrestricted/SetupTeardown.cs for a sample.
 
 ---
+
+For more samples see the solution **Yawat.Samples** under https://github.com/helmuttheis/Yawat/blob/master/Yawat.Samples.
+
+
 
 # ToDos
 
 There are a lot of unfinished or even missing features.<br/>
-Especially all sections marked with **[*]** required more work.
+Especially all sections marked with **[*]** require more work.
 
 For more details see [todos.md](todos.md)
 
 # Build all
 
+## Windows
+
 Clone the repository and run **buildAll.bat** from within the Yawat directory.<br/>
 It is expected that the dotnet CLI is installed.
+
+## [*]Docker/Linux
+
+We need a **buildAll.sh** to run the PowerShell script **buildAll.ps1**.
+
+## [*]Azure DevOps
+
+The file **azure-pipelines.yml** has to be changed to use the GutHub repository.
 
 # Run the servers
 

@@ -4,9 +4,9 @@
 
     public class JsonResponseData : IYawatResponseData
     {
-        public JsonResponseData(string str)
+        public JsonResponseData(byte[] byteArray)
         {
-            this.Data = str;
+            this.Data = System.Text.Encoding.UTF8.GetString(byteArray, 0, byteArray.Length);
         }
 
         public string Data { get; set; }

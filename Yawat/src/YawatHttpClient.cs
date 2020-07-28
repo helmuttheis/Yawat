@@ -49,6 +49,8 @@
 
         public async Task<YawatResult> PutAsync(string endPoint, string jsonString, YawatOptions options = null) => await this.RequestAsync(HttpMethod.Put, endPoint, jsonString, options);
 
+        public async Task<YawatResult> PutAsync(string endPoint, IYawatRequestData requestData, YawatOptions options = null) => await this.RequestAsync(HttpMethod.Put, endPoint, requestData, options);
+
         public async Task<YawatResult> TraceAsync(string endPoint, YawatOptions options = null) => await this.RequestAsync(HttpMethod.Put, endPoint, string.Empty, options);
 
         private YawatResult Request(HttpMethod verb, string endPoint, string jsonString = "",
@@ -132,8 +134,14 @@
 
         private async Task<YawatResult> PostProcessResponse(HttpResponseMessage response, YawatOptions options)
         {
-            var stringData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            var responseData = Activator.CreateInstance(options.ResponseType, stringData) as IYawatResponseData;
+            byte[] byteArray = { };
+
+            if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Created)
+            {
+                byteArray = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
+            }
+
+            var responseData = Activator.CreateInstance(options.ResponseType, byteArray) as IYawatResponseData;
 
             var result = new YawatResult(responseData)
             {

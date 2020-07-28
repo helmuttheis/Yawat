@@ -8,9 +8,9 @@
 
     public class XmlResponseData : IYawatResponseData
     {
-        public XmlResponseData(string str)
+        public XmlResponseData(byte[] byteArray)
         {
-            this.Data = str;
+            this.Data = System.Text.Encoding.UTF8.GetString(byteArray, 0, byteArray.Length);
         }
 
         public string Data { get; set; }
