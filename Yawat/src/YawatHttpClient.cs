@@ -95,7 +95,7 @@
 
             if (verb == HttpMethod.Post || verb == HttpMethod.Put )
             {
-                request.Content = new StringContent(jsonString, Encoding.UTF8, useOptions.MediaType);
+                request.Content = new StringContent(jsonString, Encoding.UTF8, "text/json"); // useOptions.MediaType);
             }
 
             HttpResponseMessage response;

@@ -4,7 +4,7 @@
     {
         object Data { get; set; }
 
-        string MediaType { get; set; }
+        string MediaType { get;  }
 
         byte[] Serialize();
     }

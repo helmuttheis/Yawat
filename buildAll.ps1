@@ -5,7 +5,7 @@ if ( -not (Test-Path -Path 'C:\NuGet.local' -PathType Container) ) {
 	exit -1;
 }
 
-$VERSION = "0.0.12"
+$VERSION = "0.0.14"
 
 Write-Host "Build Yawat for version $VERSION"
 

@@ -2,15 +2,10 @@
 
 namespace Unrestricted
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
-    using System.Xml;
     using Models;
 
     using NUnit.Framework;
-
-    using Yawat;
-    using Yawat.ResponseData;
 
     [TestFixture]
     public class CrudRequests

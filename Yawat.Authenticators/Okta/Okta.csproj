@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Okta.Sdk" Version="3.1.0" />
-    <PackageReference Include="Yawat" Version="0.0.12" />
+    <PackageReference Include="Yawat" Version="0.0.14" />
   </ItemGroup>
 
 </Project>

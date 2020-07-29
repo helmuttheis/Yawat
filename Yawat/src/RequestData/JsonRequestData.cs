@@ -4,9 +4,9 @@
 
     public class JsonRequestData : IYawatRequestData
     {
-        public object Data { get; set; }
+        public string MediaType { get;  } = "text/json";
 
-        public string MediaType { get; set; }
+        public object Data { get; set; }
 
         public byte[] Serialize()
         {
