@@ -8,7 +8,7 @@
 
         Task<long> Insert();
 
-        Task Delete();
+        Task<long> Delete();
 
         Task Update();
     }

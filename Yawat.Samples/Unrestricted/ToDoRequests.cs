@@ -1,9 +1,10 @@
-﻿namespace Unrestricted
+﻿using Yawat.Models;
+
+namespace Unrestricted
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Xml;
-    using Models;
 
     using NUnit.Framework;
 
@@ -54,12 +55,12 @@
         [Test]
         public void ShouldGetObjectFromGetAll()
         {
-            var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}").As<List<ToDoItem>>();
+            var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}").As<List<TodoItem>>();
 
             Assert.AreNotEqual(toDoList.Count, 0);
 
             var id = toDoList[0].Id;
-            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/{id}").As<ToDoItem>();
+            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/{id}").As<TodoItem>();
 
             Assert.AreEqual(toDo.Id, id);
         }

@@ -1,36 +1,34 @@
-﻿using Yawat.ResponseData;
-
-namespace Yawat.Cli.Data
+﻿namespace Yawat.Cli.Data
 {
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    using Models;
-
     using Yawat.Interfaces;
+    using Yawat.Models;
+    using Yawat.ResponseData;
 
     public class GenericData : IGenericData
     {
-        private readonly ToDoItem newToDoItem;
+        private readonly TodoItem newTodoItem;
         private readonly IYawatRequestData requestData;
         private readonly Config config;
-        private readonly YawatOptions options = null;
+        private readonly YawatOptions options;
 
         private long createdId = -1;
-        private ToDoItem updatedToDoItem;
+        private TodoItem updatedToDoItem;
 
         public GenericData(Config config, IYawatRequestData requestData, YawatOptions options = null)
         {
             this.config = config;
             this.options = options;
-            this.newToDoItem = new ToDoItem()
+            this.newTodoItem = new TodoItem()
             {
                 Name = "new item",
                 IsComplete = false
             };
             this.requestData = requestData;
-            this.requestData.Data = this.newToDoItem;
+            this.requestData.Data = this.newTodoItem;
         }
 
         public async Task<int> Count()
@@ -42,7 +40,7 @@ namespace Yawat.Cli.Data
                 return result.As<ArrayOfTodoItemDto>().TodoItemDto.Length;
             }
 
-            return result.As<List<ToDoItem>>().Count;
+            return result.As<List<TodoItem>>().Count;
         }
 
         public async Task<long> Insert()
@@ -50,54 +48,91 @@ namespace Yawat.Cli.Data
             this.createdId = -1;
             var result = await this.config.HttpClientWithOptions.PostAsync($"{Config.BaseRoute}", this.requestData, this.options);
 
-            if (this.options != null && this.options.ResponseType != null && this.options.ResponseType == typeof(XmlResponseData))
+            if (this.IsXmlResponse() )
             {
-                var createdToDoItemXml = result.As<ArrayOfTodoItemDtoTodoItemDto>();
+                var createdToDoItemXml = result.As<TodoItemDto>();
                 if (createdToDoItemXml != null)
                 {
                     this.createdId = createdToDoItemXml.Id;
                 }
             }
-
-            var createdToDoItem = result.As<ToDoItem>();
-            if (createdToDoItem != null)
+            else
             {
-                this.createdId = createdToDoItem.Id;
+                var createdToDoItem = result.As<TodoItem>();
+                if (createdToDoItem != null)
+                {
+                    this.createdId = createdToDoItem.Id;
+                }
             }
 
             return this.createdId;
         }
 
-        public async Task Delete()
+        public async Task<long> Delete()
         {
+            long deletedId = -1;
             var result = await this.config.HttpClientWithOptions.DeleteAsync($"{Config.BaseRoute}/{this.createdId}", this.options);
 
-            var deletedToDoItem = result.As<ToDoItem>();
-            if (deletedToDoItem == null)
+            if (this.IsXmlResponse() )
             {
-                Console.WriteLine("ERROR: delete");
+                var deletedToDoItem = result.As<TodoItem>();
+                if (deletedToDoItem != null)
+                {
+                    deletedId = deletedToDoItem.Id;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: delete");
+                }
             }
+            else
+            {
+                var deletedToDoItem = result.As<TodoItem>();
+                if (deletedToDoItem != null)
+                {
+                    deletedId = deletedToDoItem.Id;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: delete");
+                }
+            }
+
+            return deletedId;
         }
 
         public async Task Update()
         {
-            this.newToDoItem.Id = this.createdId;
-            this.newToDoItem.Name = "Updated name";
+            this.newTodoItem.Id = this.createdId;
+            this.newTodoItem.Name = "Updated name";
 
             var result = await this.config.HttpClientWithOptions.PutAsync($"{Config.BaseRoute}/{this.createdId}", this.requestData, this.options);
 
-            var createdToDoItem = result.As<ToDoItem>();
-            if (createdToDoItem != null)
+            var resultUpdated = await this.config.HttpClientWithOptions.GetAsync(
+                $"{Config.BaseRoute}/{this.createdId}",
+                this.options);
+
+            if (this.IsXmlResponse())
             {
-                this.createdId = createdToDoItem.Id;
+                var updatedToDoItemXml = resultUpdated.As<TodoItemDto>();
+
+                if (!updatedToDoItemXml.Name.Equals(this.newTodoItem.Name))
+                {
+                    throw new Exception("Name was not updated");
+                }
             }
-
-            this.updatedToDoItem = (await this.config.HttpClientWithOptions.GetAsync($"{Config.BaseRoute}/{this.createdId}", this.options)).As<ToDoItem>();
-
-            if (!this.updatedToDoItem.Name.Equals(this.newToDoItem.Name))
+            else
             {
-                throw new Exception("Name was not updated");
+                this.updatedToDoItem = resultUpdated.As<TodoItem>();
+
+                if (!this.updatedToDoItem.Name.Equals(this.newTodoItem.Name))
+                {
+                    throw new Exception("Name was not updated");
+                }
             }
         }
+
+        private bool IsXmlResponse() => this.options != null && this.options.ResponseType != null &&
+                                      this.options.ResponseType == typeof(XmlResponseData);
     }
 }

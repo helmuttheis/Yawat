@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yawat.Cli", "Yawat.Cli.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unrestricted", "..\Yawat.Samples\Unrestricted\Unrestricted.csproj", "{23CE008C-744B-45ED-BE74-3C6E4460370E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Yawat.Samples\Models\Models.csproj", "{60A38030-467E-44C4-AE74-20AFEFD4FEB7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yawat", "..\Yawat\src\Yawat.csproj", "{C5E7F442-3923-46A8-9A65-4C141617CAC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectReferences", "ProjectReferences", "{4A0BDCAD-79C6-4116-A5E1-CC753437D410}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yawat.Models", "..\Yawat.Servers\Yawat.Models\Yawat.Models.csproj", "{BAF63ADF-4FB5-4B48-90F0-E3AE23FDAF32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,17 +27,22 @@ Global
 		{23CE008C-744B-45ED-BE74-3C6E4460370E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23CE008C-744B-45ED-BE74-3C6E4460370E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23CE008C-744B-45ED-BE74-3C6E4460370E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60A38030-467E-44C4-AE74-20AFEFD4FEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60A38030-467E-44C4-AE74-20AFEFD4FEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60A38030-467E-44C4-AE74-20AFEFD4FEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60A38030-467E-44C4-AE74-20AFEFD4FEB7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5E7F442-3923-46A8-9A65-4C141617CAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5E7F442-3923-46A8-9A65-4C141617CAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5E7F442-3923-46A8-9A65-4C141617CAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5E7F442-3923-46A8-9A65-4C141617CAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF63ADF-4FB5-4B48-90F0-E3AE23FDAF32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF63ADF-4FB5-4B48-90F0-E3AE23FDAF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF63ADF-4FB5-4B48-90F0-E3AE23FDAF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF63ADF-4FB5-4B48-90F0-E3AE23FDAF32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23CE008C-744B-45ED-BE74-3C6E4460370E} = {4A0BDCAD-79C6-4116-A5E1-CC753437D410}
+		{C5E7F442-3923-46A8-9A65-4C141617CAC0} = {4A0BDCAD-79C6-4116-A5E1-CC753437D410}
+		{BAF63ADF-4FB5-4B48-90F0-E3AE23FDAF32} = {4A0BDCAD-79C6-4116-A5E1-CC753437D410}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76EA57C3-5CCD-49F2-BF78-6DADF81023FC}

@@ -4,9 +4,9 @@ using Yawat.RequestData;
 namespace Unrestricted
 {
     using System.Threading.Tasks;
-    using Models;
 
     using NUnit.Framework;
+    using Yawat.Models;
 
     [TestFixture]
     public class CrudRequests
@@ -16,12 +16,12 @@ namespace Unrestricted
         [Test]
         public void ShouldReadObject()
         {
-            var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}").As<List<ToDoItem>>();
+            var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}").As<List<TodoItem>>();
 
             Assert.AreNotEqual(toDoList.Count, 0);
 
             var id = toDoList[0].Id;
-            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/{id}").As<ToDoItem>();
+            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/{id}").As<TodoItem>();
 
             Assert.AreEqual(toDo.Id, id);
         }
@@ -29,7 +29,7 @@ namespace Unrestricted
         [Test]
         public async Task ShouldCreateUpdateDeleteObject()
         {
-            var newToDoItem = new ToDoItem()
+            var newToDoItem = new TodoItem()
             {
                 Name = "new item",
                 IsComplete = false
@@ -39,7 +39,7 @@ namespace Unrestricted
                 Data = newToDoItem
             };
 
-            var toDoCreated = (await SetupTeardown.HttpClientWithOptions.PostAsync($"{BaseRoute}", requestData)).As<ToDoItem>();
+            var toDoCreated = (await SetupTeardown.HttpClientWithOptions.PostAsync($"{BaseRoute}", requestData)).As<TodoItem>();
 
             Assert.AreEqual(toDoCreated.Name, newToDoItem.Name);
 
@@ -48,8 +48,9 @@ namespace Unrestricted
             newToDoItem.Id = toDoCreated.Id;
 
             var result = (await SetupTeardown.HttpClientWithOptions.PutAsync($"{BaseRoute}/{toDoCreated.Id}", requestData));
+            Assert.AreEqual(result.StatusCode.ToString(), "NoContent");
 
-            var toDo = (await SetupTeardown.HttpClientWithOptions.GetAsync($"{BaseRoute}/{toDoCreated.Id}")).As<ToDoItem>();
+            var toDo = (await SetupTeardown.HttpClientWithOptions.GetAsync($"{BaseRoute}/{toDoCreated.Id}")).As<TodoItem>();
 
             Assert.AreEqual(toDo.Name, newToDoItem.Name);
         }

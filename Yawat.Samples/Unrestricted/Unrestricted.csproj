@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\..\Yawat.Servers\Yawat.Models\Yawat.Models.csproj" />
   </ItemGroup>
 
 </Project>

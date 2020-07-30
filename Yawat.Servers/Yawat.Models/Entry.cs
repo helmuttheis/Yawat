@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace Yawat.Models
 {
     public class Entry
     {

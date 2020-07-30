@@ -1,10 +1,10 @@
 ﻿namespace Authenticated
 {
     using System.Collections.Generic;
-    using Models;
     using NUnit.Framework;
 
     using Yawat;
+    using Yawat.Models;
     using Yawat.ResponseData;
 
     [TestFixture]
@@ -39,13 +39,13 @@
         [Test]
         public void ShouldGetFirstItemFromGetAll()
         {
-            var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{this.baseRoute}", this.options).As<List<ToDoItem>>();
+            var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{this.baseRoute}", this.options).As<List<TodoItem>>();
 
             Assert.AreNotEqual(toDoList.Count, 0);
 
             var id = toDoList[0].Id;
 
-            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{this.baseRoute}/{id}", this.options).As<ToDoItem>();
+            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{this.baseRoute}/{id}", this.options).As<TodoItem>();
 
             Assert.AreEqual(toDo.Id, id);
         }

@@ -1,7 +1,7 @@
 ﻿namespace Unrestricted
 {
     using System.Threading.Tasks;
-    using Models;
+    using Yawat.Models;
     using NUnit.Framework;
 
     [TestFixture]

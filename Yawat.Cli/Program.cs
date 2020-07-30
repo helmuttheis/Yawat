@@ -19,7 +19,7 @@
             {
                 await DebugJsonRequestData(config);
 
-                // ToDo: await DebugXmlRequestData(config);
+                await DebugXmlRequestData(config);
             }).Wait();
         }
 
@@ -54,7 +54,9 @@
 
             await genericData.Update();
 
-            await genericData.Delete();
+            var deletedId = await genericData.Delete();
+            Assert.AreNotEqual(-1, deletedId);
+
             var cnt = await genericData.Count();
 
             Assert.AreEqual(cntInserted - 1, cntStart);

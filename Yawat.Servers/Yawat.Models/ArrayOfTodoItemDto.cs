@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace Yawat.Models
 {
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]

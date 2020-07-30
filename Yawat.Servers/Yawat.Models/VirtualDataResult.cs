@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace Models
+namespace Yawat.Models
 {
     public class VirtualDataResult
     {
