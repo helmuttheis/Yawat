@@ -37,19 +37,17 @@
         }
 
         [Test]
-        public void ShouldGetObjectFromGetAll()
+        public void ShouldGetFirstItemFromGetAll()
         {
             var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{this.baseRoute}", this.options).As<List<ToDoItem>>();
 
             Assert.AreNotEqual(toDoList.Count, 0);
-        }
 
-        [Test]
-        public void ShouldGetObjectFromGet()
-        {
-            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{this.baseRoute}/1", this.options).As<ToDoItem>();
+            var id = toDoList[0].Id;
 
-            Assert.AreEqual(toDo.Id, 1);
+            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{this.baseRoute}/{id}", this.options).As<ToDoItem>();
+
+            Assert.AreEqual(toDo.Id, id);
         }
     }
 }

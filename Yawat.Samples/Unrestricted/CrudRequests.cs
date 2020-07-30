@@ -1,4 +1,5 @@
-﻿using Yawat.RequestData;
+﻿using System.Collections.Generic;
+using Yawat.RequestData;
 
 namespace Unrestricted
 {
@@ -15,13 +16,18 @@ namespace Unrestricted
         [Test]
         public void ShouldReadObject()
         {
-            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/1").As<ToDoItem>();
+            var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}").As<List<ToDoItem>>();
 
-            Assert.AreEqual(toDo.Id, 1);
+            Assert.AreNotEqual(toDoList.Count, 0);
+
+            var id = toDoList[0].Id;
+            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/{id}").As<ToDoItem>();
+
+            Assert.AreEqual(toDo.Id, id);
         }
 
         [Test]
-        public async Task ShouldCreateObject()
+        public async Task ShouldCreateUpdateDeleteObject()
         {
             var newToDoItem = new ToDoItem()
             {
@@ -33,10 +39,19 @@ namespace Unrestricted
                 Data = newToDoItem
             };
 
-            var toDo = (await SetupTeardown.HttpClientWithOptions.PostAsync($"{BaseRoute}", requestData)).As<ToDoItem>();
+            var toDoCreated = (await SetupTeardown.HttpClientWithOptions.PostAsync($"{BaseRoute}", requestData)).As<ToDoItem>();
+
+            Assert.AreEqual(toDoCreated.Name, newToDoItem.Name);
+
+
+            newToDoItem.Name = "Updated name";
+            newToDoItem.Id = toDoCreated.Id;
+
+            var result = (await SetupTeardown.HttpClientWithOptions.PutAsync($"{BaseRoute}/{toDoCreated.Id}", requestData));
+
+            var toDo = (await SetupTeardown.HttpClientWithOptions.GetAsync($"{BaseRoute}/{toDoCreated.Id}")).As<ToDoItem>();
 
             Assert.AreEqual(toDo.Name, newToDoItem.Name);
         }
-
     }
 }

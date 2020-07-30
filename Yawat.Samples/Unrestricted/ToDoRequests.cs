@@ -36,7 +36,7 @@
             doc.LoadXml(xml);
             var nodeList = doc.SelectNodes("//TodoItemDto");
 
-            Assert.AreEqual(nodeList.Count, 2);
+            Assert.AreNotEqual(nodeList.Count, 0);
         }
 
         [Test]
@@ -57,14 +57,11 @@
             var toDoList = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}").As<List<ToDoItem>>();
 
             Assert.AreNotEqual(toDoList.Count, 0);
-        }
 
-        [Test]
-        public void ShouldGetObjectFromGet()
-        {
-            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/1").As<ToDoItem>();
+            var id = toDoList[0].Id;
+            var toDo = SetupTeardown.HttpClientWithOptions.Get($"{BaseRoute}/{id}").As<ToDoItem>();
 
-            Assert.AreEqual(toDo.Id, 1);
+            Assert.AreEqual(toDo.Id, id);
         }
     }
 }

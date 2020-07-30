@@ -1,9 +1,9 @@
 ﻿namespace YawatServer.SeedData
 {
-    using Microsoft.Extensions.DependencyInjection;
     using System.Linq;
+    using Microsoft.Extensions.DependencyInjection;
+    using Yawat.Models;
     using YawatServer.Models;
-    using YawatServer.Models.TodoApi.Models;
 
     public class DbInitializer : IDbInitializer
     {
@@ -16,7 +16,7 @@
 
         public void SeedData()
         {
-            using var serviceScope = scopeFactory.CreateScope();
+            using var serviceScope = this.scopeFactory.CreateScope();
             using var context = serviceScope.ServiceProvider.GetService<TodoContext>();
             context.Database.EnsureCreated();
 

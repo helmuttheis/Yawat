@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
-namespace YawatServer.Controllers
+﻿namespace YawatServer.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -16,7 +16,9 @@ namespace YawatServer.Controllers
         };
 
         // ReSharper disable once NotAccessedField.Local
+#pragma warning disable IDE0052 // Remove unread private members
         private readonly ILogger<WeatherForecastController> logger;
+#pragma warning restore IDE0052 // Remove unread private members
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {

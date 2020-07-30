@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using YawatServer.Models;
-using YawatServer.Models.TodoApi.Models;
-
-namespace YawatServer.Controllers
+﻿namespace YawatServer.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using Yawat.Models;
+    using YawatServer.Models;
+
     [Route("api/[controller]")]
     [ApiController]
     public class TodoItemsController : ControllerBase
@@ -36,7 +36,7 @@ namespace YawatServer.Controllers
 
             if (todoItem == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
             return ItemToDto(todoItem);
@@ -50,13 +50,13 @@ namespace YawatServer.Controllers
         {
             if (id != todoItemDto.Id)
             {
-                return BadRequest();
+                return this.BadRequest();
             }
 
             var todoItem = await this.context.TodoItems.FindAsync(id);
             if (todoItem == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
             todoItem.Name = todoItemDto.Name;
@@ -66,12 +66,12 @@ namespace YawatServer.Controllers
             {
                 await this.context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException) when (!TodoItemExists(id))
+            catch (DbUpdateConcurrencyException) when (!this.TodoItemExists(id))
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            return NoContent();
+            return this.NoContent();
         }
 
         // POST: api/TodoItems
@@ -89,8 +89,8 @@ namespace YawatServer.Controllers
             this.context.TodoItems.Add(todoItem);
             await this.context.SaveChangesAsync();
 
-            return CreatedAtAction(
-                nameof(GetTodoItem),
+            return this.CreatedAtAction(
+                nameof(this.GetTodoItem),
                 new { id = todoItem.Id },
                 ItemToDto(todoItem));
         }
@@ -102,7 +102,7 @@ namespace YawatServer.Controllers
             var todoItem = await this.context.TodoItems.FindAsync(id);
             if (todoItem == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
             this.context.TodoItems.Remove(todoItem);
@@ -111,10 +111,6 @@ namespace YawatServer.Controllers
             return todoItem;
         }
 
-        private bool TodoItemExists(long id)
-        {
-            return this.context.TodoItems.Any(e => e.Id == id);
-        }
         private static TodoItemDto ItemToDto(TodoItem todoItem) =>
             new TodoItemDto
             {
@@ -122,5 +118,10 @@ namespace YawatServer.Controllers
                 Name = todoItem.Name,
                 IsComplete = todoItem.IsComplete
             };
+
+        private bool TodoItemExists(long id)
+        {
+            return this.context.TodoItems.Any(e => e.Id == id);
+        }
     }
 }

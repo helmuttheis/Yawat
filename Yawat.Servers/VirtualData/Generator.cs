@@ -110,7 +110,6 @@
                 {
                     entries.Add(new Entry(i, this.totalCount, this.groupSize));
                 }
-
             }
 
             return new GeneratorResult()

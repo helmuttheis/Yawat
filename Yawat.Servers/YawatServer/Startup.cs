@@ -1,26 +1,26 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using Okta.AspNetCore;
-using WebApiContrib.Core.Formatter.Bson;
-using WebApiContrib.Core.Formatter.Csv;
-using WebApiContrib.Core.Formatter.PlainText;
-using WebApiContrib.Core.Formatter.Protobuf;
-using Yawat;
-using YawatServer.Models.TodoApi.Models;
-using YawatServer.SeedData;
-
 namespace YawatServer
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.IdentityModel.Tokens;
+    using Okta.AspNetCore;
+    using WebApiContrib.Core.Formatter.Bson;
+    using WebApiContrib.Core.Formatter.Csv;
+    using WebApiContrib.Core.Formatter.PlainText;
+    using WebApiContrib.Core.Formatter.Protobuf;
+    using Yawat;
+    using YawatServer.Models;
+    using YawatServer.SeedData;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -75,7 +75,6 @@ namespace YawatServer
                 {
                     OktaDomain = YawatSettings.Get("Okta.Domain")
                 });
-
 
             services.AddControllers()
                 .AddPlainTextFormatters()
